@@ -30,8 +30,6 @@ options=optimset('TolFun',1e-2);
 options=optimset('TolX',1e-1);
 [opt_ham,fval,exitflag,output]=fminsearch(@ham_iter,ham_vec,options);
 
-% disp(exitflag)
-% disp(output)    
 toc
 disp(fval)
 global ham gamma;
@@ -40,7 +38,6 @@ gamma=[10 0 0; 0 10 0; 0 0 10];
 gamma=0; %no dephasing
  
 %build hamiltonian matrix
-%copy and pasted from plenio pdf
 
 row1=[opt_ham(1)   opt_ham(3)   0];
 row2=[opt_ham(3)   -1i*(5/1.88)   opt_ham(4)];
@@ -118,7 +115,6 @@ gamma=[1 0 0; 0 1 0; 0 0 1];
 gamma=0; %no dephasing
  
 %build hamiltonian matrix
-%copy and pasted from plenio pdf
 
 row1=[ham_vec(1)   ham_vec(3)   0];
 row2=[ham_vec(3)   -1i*5/1.88   ham_vec(4)];
